@@ -61,27 +61,29 @@ namespace Lab1
         {
             int len = nums.Length;
             if (len == 0) return -1;
-            else if (len == 1) return 0;
+            if (len == 1) return 0;
 
             int index = -1;
-            int large1 = 0;
-            int target1 = 0;
+            int large = 0;
+            int target = 0;
 
             for(int ii = 0; ii < len; ii++)
             {
-                if (nums[ii] >= target1)
+              
+                int temp = nums[ii] << 1;
+                if (nums[ii] >= target)
                 {
-                    large1 = nums[ii];
+                    large = nums[ii];
                     index = ii;
-                    target1 = large1 << 1;
+                    target = temp;
                 } 
-                else if (nums[ii] > large1)
+                else if (nums[ii] > large)
                 {
-                    large1 = nums[ii];
+                    large = nums[ii];
                     index = -1;
-                    target1 = large1 << 1;
+                    target = temp;
                 }
-                else if (nums[ii] << 1 > large1)
+                else if (temp > large)
                 {
                     index = -1;
                 }
